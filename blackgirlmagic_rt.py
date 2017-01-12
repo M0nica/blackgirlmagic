@@ -11,7 +11,7 @@ twitter = Twython(config.api_key, config.api_secret, config.access_token, config
 terms = [ "#BlackGirlMagic", "#MelaninPoppin", "#BlackGirlsRock", "#BlackGirlsCode", "#CarefreeBlackGirl"]
 for term in terms:
 
-    response = twitter.search(q=term + '-filter:retweets -instagram', result_type="recent", count=2)
+    response = twitter.search(q=term + '-filter:retweets -instagram -facebook -fb', result_type="recent", count=2)
 
     try:
         [twitter.retweet(id = tweet["id_str"]) for tweet in response['statuses']]
