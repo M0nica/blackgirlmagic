@@ -8,10 +8,10 @@ twitter = Twython(config.api_key, config.api_secret, config.access_token, config
 # return tweets containing #BlackGirlMagic or related terms, pulls the most recent tweets
 
 
-terms = [ "#BlackGirlMagic", "#MelaninPoppin", "#BlackGirlsRock", "#BlackGirlsCode", "#CarefreeBlackGirl"]
+terms = [ "#BlackGirlMagic", "#MelaninPoppin", "#BlackGirlsRock", "#BlackGirlsCode", "#CarefreeBlackGirl", "#BlackGirlHealing", "#blackwomanhood"]
 for term in terms:
 
-    response = twitter.search(q=term + '-filter:retweets -instagram -facebook -fb', result_type="recent", count=2)
+    response = twitter.search(q=term + 'filter:safe -filter:retweets -instagram -facebook -fb -sex', result_type="recent", count=2)
 
     try:
         [twitter.retweet(id = tweet["id_str"]) for tweet in response['statuses']]
